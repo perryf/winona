@@ -4,7 +4,7 @@ class MoviesController < ApplicationController
   end
 
   def new
-    @movie = Movie.new 
+    @movie = Movie.new
   end
 
   def create
@@ -32,7 +32,7 @@ class MoviesController < ApplicationController
     if @movie.save
       redirect_to movie_path(@movie), notice: "#{@movie.title} was successfully updated!"
     else
-      render :new
+      render :edit
     end
   end
 
