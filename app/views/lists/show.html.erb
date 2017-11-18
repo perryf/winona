@@ -1,0 +1,10 @@
+<h2><%= @list.name %></h2>
+
+<% @list.movies.order('id DESC').each do |movie| %>
+  <h3><%= link_to movie.title, movie_path(movie) %></h3>
+  <%= link_to image_tag(movie.poster_url, alt: "Movie Poster for #{movie.title}", class: "movie-poster"), movie_path(movie) %>
+<% end %>
+
+<div class="go-back">
+  <%= link_to "Go Back", :back %>
+</div>

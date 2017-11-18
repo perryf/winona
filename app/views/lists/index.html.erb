@@ -1,0 +1,11 @@
+<h2>Lists</h2>
+
+<ul>
+  <% @lists.each do |list| %>
+    <li><%= link_to list.name, list_path(list) %></li>
+  <% end %>
+</ul>
+
+<div class="go-back">
+  <%= link_to "Go Back", :back %>
+</div>
