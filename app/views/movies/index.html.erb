@@ -1,8 +1,7 @@
 <h2>Movies <%= link_to "(+)", new_movie_path %></h2>
+<h2><%= link_to "Lists", lists_path %></h2>
 
 <% @movies.each do |movie| %>
-  <a href="<%= movie_path(movie) %>">
-    <h3><%= movie.title %></h3>
-    <%= image_tag movie.poster_url, alt: "Movie Poster for #{movie.title}", class: "movie-poster" %>
-  </a>
+  <h3><%= link_to movie.title, movie_path(movie) %></h3>
+  <%= link_to image_tag(movie.poster_url, alt: "Movie Poster for #{movie.title}", class: "movie-poster"), movie_path(movie) %>
 <% end %>
