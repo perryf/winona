@@ -1,0 +1,37 @@
+<div class="error-message">
+  <% @movie.errors.full_messages.each do |message| %>
+    <p><%= message %></p>
+  <% end %>
+</div>
+
+<%= form_for @movie do |f| %>
+  <div class="">
+    <%= f.label :title, "Title:" %>
+    <%= f.text_field :title %>
+  </div>
+
+  <div class="">
+    <%= f.label :release_date, "Release Date:" %>
+    <%#= f.date_select :release_date, start_year: 1889 %>
+    <%= f.text_field :release_date %>
+  </div>
+
+  <div class="">
+    <%= f.label :director, "Director:" %>
+    <%= f.text_field :director %>
+  </div>
+
+  <div class="">
+    <%= f.label :overview, "Overview:" %>
+    <%= f.text_area :overview %>
+  </div>
+
+  <div class="">
+    <%= f.label :poster_url, "Poster URL:" %>
+    <%= f.text_field :poster_url %>
+  </div>
+
+  <div class="">
+    <%= f.submit %>
+  </div>
+<% end %>
