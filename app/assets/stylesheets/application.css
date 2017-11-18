@@ -13,3 +13,8 @@
  *= require_tree .
  *= require_self
  */
+
+/* remove this later */
+.movie-poster {
+	width: 300px;
+}

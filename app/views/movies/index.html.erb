@@ -1,0 +1,8 @@
+<h2>Movies</h2>
+
+<% @movies.each do |movie| %>
+  <a href="<%= movie_path(movie) %>">
+    <h3><%= movie.title %></h3>
+    <%= image_tag movie.poster_url, alt: "Movie Poster for #{movie.title}", class: "movie-poster" %>
+  </a>
+<% end %>
