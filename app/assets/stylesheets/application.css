@@ -14,7 +14,50 @@
  *= require_self
  */
 
+body {
+	height: 100%;
+}
+
 /* remove this later */
 .movie-poster {
-	width: 300px;
+	width: 200px;
+}
+
+h3 {
+	font-size: 16px;
+}
+
+.movies-index {
+}
+
+.all-movies {
+	display: flex;
+	flex-flow: row wrap;
+	align-items: center;
+	align-content: space-around;
+	justify-content: space-around;
+}
+
+.each-movie {
+	margin: 30px;
+}
+
+.movie-show {
+	display: flex;
+	flex-direction: row;
+	align-items: flex-start;
+	justify-content: space-between;
+}
+
+.movie-poster-container {
+	width: 500px;
+}
+
+.movie-poster-container img {
+	width: 100%;
+}
+
+.movie-details {
+	padding: 0 30px;
+	flex-grow: 2;
 }
