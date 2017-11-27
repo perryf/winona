@@ -7,10 +7,13 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 Group.destroy_all
 Movie.destroy_all
+User.destroy_all
 List.destroy_all
 
-list_watched = List.create(name: "Watched")
-list_to_watch = List.create(name: "To Watch")
+sarah = User.create(email: "sarahyu0692@gmail.com", password: "password")
+
+list_watched = sarah.lists.create(name: "Watched")
+list_to_watch = sarah.lists.create(name: "To Watch")
 
 movies_watched =  Movie.create([
   {

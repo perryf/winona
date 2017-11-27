@@ -1,15 +1,22 @@
 <h2>Add <%= @movie.title %> to a list:</h2>
 
-<%= form_for [@movie, @group] do |f| %>
-  <div class="">
-    <ul>
-      <% List.all.each do |list| %>
-        <li><%= check_box_tag "list_ids[]", list.id %><%= list.name %></li>
-      <% end %>
-    </ul>
-  </div>
+<% if current_user.lists.count == 0 %>
+  <p>
+    You don't have any lists :(<br>
+    <%= link_to "Create a new list", new_user_list_path(current_user) %>
+  </p>
+<% else %>
+  <%= form_for [@movie, @group] do |f| %>
+    <div class="">
+      <ul>
+        <% @lists.each do |list| %>
+          <li><%= check_box_tag "list_ids[]", list.id %><%= list.name %></li>
+        <% end %>
+      </ul>
+    </div>
 
-  <div class="">
-    <%= f.submit "Add to list" %>
-  </div>
+    <div class="">
+      <%= f.submit "Add to list" %>
+    </div>
+  <% end %>
 <% end %>

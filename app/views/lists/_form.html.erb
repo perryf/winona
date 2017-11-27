@@ -1,10 +1,4 @@
-<div class="error-message">
-  <% @list.errors.full_messages.each do |message| %>
-    <p><%= message %></p>
-  <% end %>
-</div>
-
-<%= form_for @list do |f| %>
+<%= form_for [@user, @list] do |f| %>
   <div class="">
     <%= f.label :name, "Name:" %>
     <%= f.text_field :name %>

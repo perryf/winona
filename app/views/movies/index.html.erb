@@ -1,7 +1,10 @@
 <section class="movies-index">
 
     <h2>Movies <%= link_to "(+)", new_movie_path %></h2>
-    <h2><%= link_to "Lists", lists_path %></h2>
+
+    <% if current_user %>
+      <h2><%= link_to "Lists", user_lists_path(current_user) %></h2>
+    <% end %>
 
     <div class="all-movies">
       <% @movies.each do |movie| %>

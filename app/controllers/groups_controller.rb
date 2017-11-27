@@ -1,5 +1,6 @@
 class GroupsController < ApplicationController
   def new
+    @lists = current_user.lists.all
     @movie = Movie.find(params[:movie_id])
     @group = Group.new
   end
@@ -12,6 +13,6 @@ class GroupsController < ApplicationController
       List.find(list).groups.create(movie: @movie)
     end
 
-    redirect_to lists_path
+    redirect_to user_lists_path(current_user)
   end
 end

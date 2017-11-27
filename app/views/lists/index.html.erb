@@ -1,9 +1,9 @@
-<h2>Lists <%= link_to "(+)", new_list_path %></h2>
+<h2>Lists <%= link_to "(+)", new_user_list_path(current_user) %></h2>
 
 <ul>
-  <% @lists.each do |list| %>
+  <% current_user.lists.each do |list| %>
     <li>
-      <%= link_to list.name, list_path(list) %>
+      <%= link_to list.name, user_list_path(current_user, list) %>
       (<%= list.movies.count %>)
     </li>
   <% end %>
