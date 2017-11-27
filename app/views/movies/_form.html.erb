@@ -32,6 +32,11 @@
   </div>
 
   <div class="">
+    <%= f.label :list_ids, "Add to list:" %>
+    <%= f.collection_check_boxes :list_ids, List.all, :id, :name %>
+  </div>
+
+  <div class="">
     <%= f.submit %>
   </div>
 <% end %>

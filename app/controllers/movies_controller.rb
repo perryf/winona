@@ -11,7 +11,9 @@ class MoviesController < ApplicationController
     @movie = Movie.new(movie_params)
 
     if @movie.save
-      redirect_to movie_path(@movie), notice: "#{@movie.title} was successfully created!"
+      redirect_to movie_path(@movie), notice:
+      "#{@movie.title} was successfully created!"
+      flash[:alert] = "#{movie_params}"
     else
       render :new
     end
@@ -45,6 +47,6 @@ class MoviesController < ApplicationController
 
   private
   def movie_params
-    params.require(:movie).permit(:title, :release_date, :director, :overview, :poster_url)
+    params.require(:movie).permit(:title, :release_date, :director, :overview, :poster_url, list_ids:[])
   end
 end
