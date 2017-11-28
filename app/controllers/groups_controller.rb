@@ -1,6 +1,7 @@
 class GroupsController < ApplicationController
   def new
-    @lists = current_user.lists.all
+    @user = current_user
+    @lists = @user.lists.all
     @movie = Movie.find(params[:movie_id])
     @group = Group.new
   end

@@ -1,13 +1,20 @@
-<h2>Lists <%= link_to "(+)", new_user_list_path(current_user) %></h2>
+<section class="lists-index">
+  <header>
+    <h2>Lists <%= link_to "(+)", new_user_list_path(current_user) %></h2>
+  </header>
 
-<ul>
-  <% current_user.lists.each do |list| %>
-    <li>
-      <%= link_to list.name, user_list_path(current_user, list) %>
-      (<%= list.movies.count %>)
-    </li>
-  <% end %>
-</ul>
+  <div class="all-lists">
+    <% @user.lists.each do |list| %>
+      <div class="each-list">
+        <p><%= link_to list.name, user_list_path(@user, list) %></p>
+        <p>(<%= list.movies.count %>)</p>
+      </div>
+    <% end %>
+  </div>
+
+</section>
+
+
 
 <div class="go-back">
   <%= link_to "Go Back", :back %>

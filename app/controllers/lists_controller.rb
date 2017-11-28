@@ -1,6 +1,6 @@
 class ListsController < ApplicationController
   def index
-    @lists = List.all
+    @user = current_user
   end
 
   def new
@@ -16,7 +16,7 @@ class ListsController < ApplicationController
     @list = List.new(list_params.merge(user: current_user))
 
     if @list.save
-      redirect_to user_lists_path, notice: "#{@list.name} was successfuly created."
+      redirect_to user_lists_path, notice: "#{@list.name} was created."
     else
       render :new
     end
@@ -28,12 +28,12 @@ class ListsController < ApplicationController
   end
 
   def update
-    @user = User.find(current_user.id)
+    @user = current_user
     @list = @user.lists.find(params[:id])
     @list.update(list_params)
 
     if @list.save
-      redirect_to user_list_path(@list), notice: "#{@list.name} was successfully updated!"
+      redirect_to user_list_path(@list), notice: "#{@list.name} was updated."
     else
       render :edit
     end
@@ -41,9 +41,14 @@ class ListsController < ApplicationController
 
   def destroy
     @list = List.find(params[:id])
-    @list.destroy
 
-    redirect_to user_lists_path, notice: "#{@list.name} was successfully deleted."
+    if @list.user == current_user
+      @list.destroy
+    else
+      flash[:alert] = "You can only delete lists that you create."
+    end
+
+    redirect_to user_lists_path, notice: "#{@list.name} was deleted."
   end
 
   private

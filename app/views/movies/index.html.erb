@@ -1,16 +1,12 @@
 <section class="movies-index">
-
-    <h2>Movies <%= link_to "(+)", new_movie_path %></h2>
-
-    <% if current_user %>
-      <h2><%= link_to "Lists", user_lists_path(current_user) %></h2>
-    <% end %>
-
+  
     <div class="all-movies">
       <% @movies.each do |movie| %>
         <div class="each-movie">
-          <%= link_to image_tag(movie.poster_url, alt: "Movie Poster for #{movie.title}", class: "movie-poster"), movie_path(movie) %>
-          <h3><%= link_to movie.title, movie_path(movie) %></h3>
+          <div class="movie-poster-container">
+            <%= link_to image_tag(movie.poster_url, alt: "Movie Poster for #{movie.title}"), movie_path(movie) %>
+          </div>
+          <h3 class="movie-title"><%= link_to movie.title, movie_path(movie) %></h3>
         </div>
       <% end %>
     </div>

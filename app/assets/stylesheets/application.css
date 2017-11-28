@@ -15,19 +15,39 @@
  */
 
 body {
+	background-color: #f8f8f7;
+	color: #212121;
+	font-family: 'Karla', sans-serif;
 	height: 100%;
-}
-
-/* remove this later */
-.movie-poster {
-	width: 200px;
+	margin: 0;
 }
 
 h3 {
-	font-size: 16px;
+	font-size: 14px;
+	letter-spacing: 0.8px;
+	text-transform: uppercase;
 }
 
-.movies-index {
+a {
+	color: #212121;
+	text-decoration: none;
+}
+
+nav {
+	padding: 30px 30px 10px 30px;
+	display: flex;
+	align-items: center;
+}
+
+nav a {
+	margin-left: 10px;
+}
+
+.nav-logo {
+	font-family: 'Playfair Display', serif;
+	font-size: 36px;
+	letter-spacing: 0.3px;
+	margin-right: auto;
 }
 
 .all-movies {
@@ -40,9 +60,21 @@ h3 {
 
 .each-movie {
 	margin: 30px;
+	display: flex;
+	flex-flow: column wrap;
+	align-items: center;
+	justify-content: center;
+	flex-basis: 200px;
+	flex-grow: 0;
+	flex-shrink: 1;
+}
+
+.each-movie .movie-poster-container {
+	width: 200px;
 }
 
 .movie-show {
+	padding: 0 30px;
 	display: flex;
 	flex-direction: row;
 	align-items: flex-start;
@@ -50,7 +82,11 @@ h3 {
 }
 
 .movie-poster-container {
-	width: 500px;
+	/*width: 500px;*/
+	/*flex-basis: 33.33%;
+	flex-grow: 0;
+	flex-shrink: 0;*/
+	flex: 1;
 }
 
 .movie-poster-container img {
@@ -58,6 +94,61 @@ h3 {
 }
 
 .movie-details {
-	padding: 0 30px;
-	flex-grow: 2;
+	margin: 0 30px;
+	/*flex-basis: 66.66%;
+	flex-grow: 0;
+	flex-shrink: 0;*/
+	flex: 2;
+}
+
+.movie-title {
+	overflow-wrap: break-word;
+	text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+	.movie-poster-container {
+		flex: 1;
+	}
+
+	.movie-details {
+		flex: 1;
+	}
+}
+
+@media screen and (max-width: 480px) {
+	.movie-show {
+		padding: 0 10px;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+	}
+
+	/*.movie-poster-container {
+		width: 320px;
+	}*/
+
+	.movie-details {
+		margin: 0;
+	}
+}
+
+.all-lists {
+	display: flex;
+	flex-flow: row wrap;
+	align-items: center;
+	justify-content: space-around;
+}
+
+.each-list {
+	border: 1px solid black;
+	height: 300px;
+	margin: 30px;
+	flex-basis: 300px;
+	flex-grow: 0;
+	flex-shrink: 1;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
 }
