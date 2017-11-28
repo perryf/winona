@@ -1,7 +1,7 @@
 class GroupsController < ApplicationController
   def new
-    @user = current_user
-    @lists = @user.lists.all
+    # @user = current_user
+    # @lists = @user.lists
     @movie = Movie.find(params[:movie_id])
     @group = Group.new
   end
@@ -11,9 +11,17 @@ class GroupsController < ApplicationController
     @list_ids = params[:list_ids] || []
 
     @list_ids.each do |list|
-      List.find(list).groups.create(movie: @movie)
+      @group = List.find(list).groups.new(movie: @movie)
+      @count = 0
+      if !@group.save
+        @count += 1
+      end
     end
 
-    redirect_to user_lists_path(current_user)
+    if @count > 0
+      render :new
+    else
+      redirect_to movie_path(@movie)
+    end
   end
 end

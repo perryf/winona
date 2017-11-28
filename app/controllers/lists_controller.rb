@@ -30,12 +30,17 @@ class ListsController < ApplicationController
   def update
     @user = current_user
     @list = @user.lists.find(params[:id])
-    @list.update(list_params)
 
-    if @list.save
-      redirect_to user_list_path(@list), notice: "#{@list.name} was updated."
+    if @list.user == @user
+      @list.update(list_params)
+
+      if @list.save
+        redirect_to user_list_path(@user, @list), notice: "#{@list.name} was updated."
+      else
+        render :edit
+      end
     else
-      render :edit
+      flash[:alert] = "You can only edit lists that you create."
     end
   end
 
@@ -53,6 +58,6 @@ class ListsController < ApplicationController
 
   private
   def list_params
-    params.require(:list).permit(:name)
+    params.require(:list).permit(:name, movie_ids:[])
   end
 end

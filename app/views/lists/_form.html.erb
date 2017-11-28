@@ -4,6 +4,18 @@
     <%= f.text_field :name %>
   </div>
 
+  <% if @list.movies.count != 0 %>
+    <div class="">
+      <%= f.label :movie_ids, "Movies in this list:" %>
+      <%= f.collection_check_boxes :movie_ids, @list.movies.all, :id, :title, {:item_wrapper_class => 'checkbox_container'} do |b| %>
+        <div class="checkbox">
+          <%= b.check_box %>
+          <%= b.label %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+
   <div class="">
     <%= f.submit %>
   </div>

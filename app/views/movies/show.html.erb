@@ -9,9 +9,8 @@
     <h3>Director: <%= @movie.director %></h3>
     <h3>Overview:</h3>
     <p><%= @movie.overview %></p>
+    <div class="go-back">
+      <%= link_to "<< Go Back", :back %>
+    </div>
   </div>
 </section>
-
-<div class="go-back">
-  <%= link_to "Go Back", :back %>
-</div>

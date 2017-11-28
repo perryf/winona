@@ -1,4 +1,4 @@
-<h2><%= @list.name %> <%= link_to "(Edit)", edit_user_list_path(@list) %> <%= link_to "(Delete)", user_list_path(@list), method: :delete %></h2>
+<h2><%= @list.name %> <%= link_to "(Edit)", edit_user_list_path(current_user, @list) %> <%= link_to "(Delete)", user_list_path(@list), method: :delete %></h2>
 
 <% if @list.movies.count == 0 %>
   <p>This list is empty :(</p>
@@ -7,15 +7,10 @@
     <% @list.movies.order('id DESC').each do |movie| %>
       <div class="each-movie">
         <div class="movie-poster-container">
-          <%= link_to image_tag(movie.poster_url, alt: "Movie Poster for #{movie.title}"), movie_path(movie)%>        
+          <%= link_to image_tag(movie.poster_url, alt: "Movie Poster for #{movie.title}"), movie_path(movie)%>
         </div>
         <h3 class="movie-title"><%= link_to movie.title, movie_path(movie) %></h3>
       </div>
     <% end %>
   </div>
 <% end %>
-
-
-<div class="go-back">
-  <%= link_to "Go Back", :back %>
-</div>

@@ -1,3 +1,7 @@
+<% @movie.errors.full_messages.each do |message| %>
+  <p><%= message %></p>
+<% end %>
+
 <%= form_for @movie do |f| %>
   <div class="">
     <%= f.label :title, "Title:" %>
@@ -7,7 +11,7 @@
   <div class="">
     <%= f.label :release_date, "Release Date:" %>
     <%#= f.date_select :release_date, start_year: 1889 %>
-    <%= f.text_field :release_date %>
+    <%= f.text_field :release_date, placeholder: 'YYYY/MM/DD' %>
   </div>
 
   <div class="">
@@ -27,10 +31,15 @@
 
   <div class="">
     <%= f.label :list_ids, "Add to list:" %>
-    <%= f.collection_check_boxes :list_ids, current_user.lists.all, :id, :name %>
+    <%= f.collection_check_boxes :list_ids, current_user.lists.all, :id, :name, {:item_wrapper_class => 'checkbox_container'} do |b|%>
+      <div class="checkbox">
+        <%= b.check_box %>
+        <%= b.label %>
+      </div>
+    <% end %>
   </div>
 
   <div class="">
-    <%= f.submit %>
+    <%= f.submit 'Submit', :class => 'btn' %>
   </div>
 <% end %>

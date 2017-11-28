@@ -16,6 +16,7 @@
 
 body {
 	background-color: #f8f8f7;
+	border-top: 10px solid #212121;
 	color: #212121;
 	font-family: 'Karla', sans-serif;
 	height: 100%;
@@ -31,6 +32,25 @@ h3 {
 a {
 	color: #212121;
 	text-decoration: none;
+}
+
+.btn {
+	background-color: #ffffff;
+	border: 1px solid #212121;
+	border-radius: 0;
+	color: #212121;
+	cursor: pointer;
+	font-family: 'Karla', sans-serif;
+	font-size: 14px;
+	letter-spacing: 0.8px;
+	outline: none;
+	padding: 10px 20px;
+	text-transform: uppercase;
+}
+
+.btn:hover {
+	background-color: #212121;
+	color: #ffffff;
 }
 
 nav {
