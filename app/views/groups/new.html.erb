@@ -2,12 +2,15 @@
   <div class="movie-poster-container">
     <%= image_tag @movie.poster_url, alt: "Movie Poster for #{@movie.title}" %>
   </div>
-  <div class="movie-details">
-    Add <%= @movie.title %> to one of your lists:
 
-    <% @group.errors.full_messages.each do |message| %>
-      <p><%= message %></p>
-    <% end %>
+  <div class="movie-details">
+    <h2 class="add-movie-to-list-header">Add <%= @movie.title %> to one of your lists:</h2>
+
+    <div class="error-messages">
+      <% @group.errors.full_messages.each do |message| %>
+        <p><%= message %></p>
+      <% end %>
+    </div>
 
     <% if current_user.lists.count == 0 %>
       <p>
@@ -15,17 +18,18 @@
         <%= button_to "Create a new list", new_user_list_path(current_user), class: 'btn', method: :get %>
       </p>
     <% else %>
-      <%= form_for [@movie, @group] do |f| %>
-        <div class="">
+      <%= form_for [@movie, @group], :html => {:class => "the-form"} do |f| %>
+        <div class="form-section">
           <% current_user.lists.each do |list| %>
-          <div class="">
-            <%= radio_button_tag "list_ids[]", list.id %><%= list.name %>
+          <div class="form-field new-group-form-field">
+            <%= radio_button_tag "list_ids[]", list.id %>
+            <span class="new-group-list-label"><%= list.name %></span>
           </div>
           <% end %>
         </div>
 
         <div class="">
-          <%= f.submit "Add to list" %>
+          <%= f.submit "Add to list", class: "btn" %>
         </div>
       <% end %>
     <% end %>

@@ -8,31 +8,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <link href="https://fonts.googleapis.com/css?family=Karla|Playfair+Display:700" rel="stylesheet">
+    <script src="https://use.fontawesome.com/bcf5b9cb71.js"></script>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <div class="wrapper">
-      <nav>
-        <%= link_to "winona", root_path, class: "nav-logo" %>
-        <% if !current_user %>
-          <%= link_to "Login", new_user_session_path %>
-          <%= link_to "Register", new_user_registration_path %>
-        <% else %>
-          <%= current_user.email %>
-          <%= link_to "(+ Movie)", new_movie_path %>
-          <%= link_to "My Lists", user_lists_path(current_user) %>
-          <%= link_to "Logout", destroy_user_session_path, :method => :delete %>
-        <% end %>
-      </nav>
+    <nav>
+      <%= link_to "winona", root_path, class: "nav-logo" %>
+      <% if !current_user %>
+        <%= link_to "Login", new_user_session_path, class: "nav-account-link" %>
+        <%= link_to "Register", new_user_registration_path, class: "nav-account-link" %>
+      <% else %>
+        <%= current_user.email %>
+        <%= link_to "(+ Movie)", new_movie_path %>
+        <%= link_to "My Lists", user_lists_path(current_user) %>
+        <%= link_to "Logout", destroy_user_session_path, class: "nav-account-link", :method => :delete %>
+      <% end %>
+    </nav>
 
+    <div class="flash-messages">
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
-
-      <%= yield %>
     </div>
 
+    <%= yield %>
   </body>
 </html>

@@ -1,13 +1,13 @@
-<%= form_for [@user, @list] do |f| %>
-  <div class="">
-    <%= f.label :name, "Name:" %>
-    <%= f.text_field :name %>
+<%= form_for [@user, @list], :html => {:class => "the-form"} do |f| %>
+  <div class="form-section">
+    <%= f.label :name, "Name:" %><br>
+    <%= f.text_field :name, class: "form-field" %>
   </div>
 
   <% if @list.movies.count != 0 %>
-    <div class="">
+    <div class="form-section">
       <%= f.label :movie_ids, "Movies in this list:" %>
-      <%= f.collection_check_boxes :movie_ids, @list.movies.all, :id, :title, {:item_wrapper_class => 'checkbox_container'} do |b| %>
+      <%= f.collection_check_boxes :movie_ids, @list.movies.all, :id, :title, {:item_wrapper_class => "checkbox_container"} do |b| %>
         <div class="checkbox">
           <%= b.check_box %>
           <%= b.label %>
@@ -16,7 +16,7 @@
     </div>
   <% end %>
 
-  <div class="">
-    <%= f.submit %>
+  <div class="form-section form-submit-btn">
+    <%= f.submit :class => "btn" %>
   </div>
 <% end %>

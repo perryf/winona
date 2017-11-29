@@ -1,14 +1,21 @@
 <section class="movies-index">
-  
-    <div class="all-movies">
-      <% @movies.each do |movie| %>
-        <div class="each-movie">
+
+  <div class="all-movies">
+    <% @movies.each do |movie| %>
+
+      <div class="each-movie">
+        <%= link_to movie_path(movie) do %>
+
           <div class="movie-poster-container">
-            <%= link_to image_tag(movie.poster_url, alt: "Movie Poster for #{movie.title}"), movie_path(movie) %>
+            <%= image_tag(movie.poster_url, alt: "Movie Poster for #{movie.title}") %>
+
+            <h4 class="movie-title"><%= movie.title %></h4>
           </div>
-          <h3 class="movie-title"><%= link_to movie.title, movie_path(movie) %></h3>
-        </div>
-      <% end %>
-    </div>
+
+        <% end %>
+      </div>
+
+    <% end %>
+  </div>
 
 </section>

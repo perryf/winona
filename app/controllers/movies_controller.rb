@@ -1,6 +1,7 @@
 class MoviesController < ApplicationController
   def index
     @movies = Movie.order('id DESC')
+    # flash[:notice] = "hello just testing so i can add css bye"
   end
 
   def new

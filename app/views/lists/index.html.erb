@@ -4,7 +4,7 @@
   </header>
 
   <div class="all-lists">
-    <% @user.lists.each do |list| %>
+    <% @user.lists.order('id DESC').each do |list| %>
       <div class="each-list">
         <p><%= link_to list.name, user_list_path(@user, list) %></p>
         <p>(<%= list.movies.count %>)</p>

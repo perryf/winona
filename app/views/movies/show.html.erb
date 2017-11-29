@@ -1,16 +1,31 @@
 <section class="movie-show">
+
   <div class="movie-poster-container">
     <%= image_tag @movie.poster_url, alt: "Movie Poster for #{@movie.title}" %>
   </div>
+
   <div class="movie-details">
-    <span><%= link_to "(+ List)", new_movie_group_path(@movie) %> <%= link_to "(Edit)", edit_movie_path(@movie) %> <%= link_to "(Delete)", movie_path(@movie), method: :delete %></span>
+    <span class="edit-options">
+      <%= link_to new_movie_group_path(@movie) do %>
+        <i class="fa fa-list-ul" aria-hidden="true"></i>
+      <% end %>
+      <%= link_to edit_movie_path(@movie) do %>
+        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+      <% end %>
+      <%= link_to movie_path(@movie), method: :delete do %>
+      <i class="fa fa-trash-o" aria-hidden="true"></i>
+      <% end %>
+    </span>
+
     <h2><%= @movie.title %></h2>
-    <h3>Release Date: <%= @movie.release_date.strftime("%B %e, %Y") %></h3>
-    <h3>Director: <%= @movie.director %></h3>
+    <h3>Release Date: <span><%= @movie.release_date.strftime("%B %e, %Y") %></span></h3>
+    <h3>Director: <span><%= @movie.director %></span></h3>
     <h3>Overview:</h3>
     <p><%= @movie.overview %></p>
+
     <div class="go-back">
-      <%= link_to "<< Go Back", :back %>
+      <%= link_to "Go Back", :back %>
     </div>
+
   </div>
 </section>

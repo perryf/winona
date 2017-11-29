@@ -14,6 +14,7 @@
  *= require_self
  */
 
+/* ----- BASE STYLES ----- */
 body {
 	background-color: #f8f8f7;
 	border-top: 10px solid #212121;
@@ -23,15 +24,42 @@ body {
 	margin: 0;
 }
 
+h1 {
+	font-family: 'Playfair Display', serif;
+	font-size: 48px;
+}
+
+h2 {
+	font-size: 36px;
+}
+
 h3 {
+	font-size: 20px;
+	letter-spacing: 0.8px;
+	text-transform: uppercase;
+}
+
+h3 > span {
+	text-transform: none;
+}
+
+h4 {
 	font-size: 14px;
 	letter-spacing: 0.8px;
 	text-transform: uppercase;
 }
 
+p {
+	line-height: 1.6;
+	max-width: 600px;
+}
+
 a {
 	color: #212121;
 	text-decoration: none;
+}
+
+a:hover {
 }
 
 .btn {
@@ -53,6 +81,70 @@ a {
 	color: #ffffff;
 }
 
+section header {
+	margin: 0;
+	padding: 0 40px;
+	/*border: 1px solid black;*/
+	/*width: 100%;
+	text-align: center;*/
+}
+
+.go-back {
+	font-size: 14px;
+	letter-spacing: 0.4px;
+	margin: 50px 0;
+	text-transform: uppercase;
+}
+
+/* change border-bottom color */
+.go-back a:hover {
+	border-bottom: 2px solid blue;
+}
+
+.edit-options a {
+	font-size: 14px;
+	margin-right: 12px;
+}
+
+/* form */
+.form-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.form-section {
+	margin: 20px 0;
+}
+
+.form-section label {
+	font-size: 14px;
+	letter-spacing: 0.8px;
+	text-transform: uppercase;
+}
+
+.form-field {
+	font-size: 16px;
+	padding: 7px 5px;
+	width: 350px;
+	margin-top: 8px;
+}
+
+.checkbox > label {
+	font-size: 16px;
+	text-transform: none;
+}
+
+.form-submit-btn {
+	text-align: center;
+}
+
+.form-submit-btn .btn {
+	width: 150px;
+}
+
+/* ----- NAV ----- */
 nav {
 	padding: 30px 30px 10px 30px;
 	display: flex;
@@ -60,16 +152,45 @@ nav {
 }
 
 nav a {
+	display: inline-block;
 	margin-left: 10px;
 }
 
 .nav-logo {
 	font-family: 'Playfair Display', serif;
 	font-size: 36px;
-	letter-spacing: 0.3px;
+	letter-spacing: 0.4px;
 	margin-right: auto;
 }
 
+.nav-account-link {
+	letter-spacing: 0.4px;
+	text-transform: uppercase;
+}
+
+/*----- FLASH MESSAGES ----- */
+.flash-messages {
+	font-size: 14px;
+	letter-spacing: 0.4px;
+	margin: 0;
+	text-transform: uppercase;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	/*border: 1px solid blue;*/
+	/*min-height: 50px;*/
+}
+
+/* change these colors later */
+.notice {
+	color: blue;
+}
+
+.alert {
+	color: red;
+}
+
+/*----- MOVIES ----- */
 .all-movies {
 	display: flex;
 	flex-flow: row wrap;
@@ -93,6 +214,16 @@ nav a {
 	width: 200px;
 }
 
+.movie-poster-container img {
+	width: 100%;
+}
+
+/* wrap and re-center long movie titles */
+.movie-title {
+	overflow-wrap: break-word;
+	text-align: center;
+}
+
 .movie-show {
 	padding: 0 30px;
 	display: flex;
@@ -101,58 +232,18 @@ nav a {
 	justify-content: space-between;
 }
 
+/* movie show page poster sizing */
 .movie-poster-container {
-	/*width: 500px;*/
-	/*flex-basis: 33.33%;
-	flex-grow: 0;
-	flex-shrink: 0;*/
 	flex: 1;
-}
-
-.movie-poster-container img {
-	width: 100%;
 }
 
 .movie-details {
 	margin: 0 30px;
-	/*flex-basis: 66.66%;
-	flex-grow: 0;
-	flex-shrink: 0;*/
+	padding: 0 30px;
 	flex: 2;
 }
 
-.movie-title {
-	overflow-wrap: break-word;
-	text-align: center;
-}
-
-@media screen and (max-width: 768px) {
-	.movie-poster-container {
-		flex: 1;
-	}
-
-	.movie-details {
-		flex: 1;
-	}
-}
-
-@media screen and (max-width: 480px) {
-	.movie-show {
-		padding: 0 10px;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-	}
-
-	/*.movie-poster-container {
-		width: 320px;
-	}*/
-
-	.movie-details {
-		margin: 0;
-	}
-}
-
+/*----- LISTS -----*/
 .all-lists {
 	display: flex;
 	flex-flow: row wrap;
@@ -171,4 +262,86 @@ nav a {
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
+}
+
+/*----- GROUPS -----*/
+.add-movie-to-list-header {
+	margin-top: 0;
+}
+
+.new-group-form-field {
+	padding: 0;
+	margin-top: 8px;
+}
+
+.new-group-list-label {
+	margin-left: 5px;
+}
+
+/*----- MEDIA QUERIES ----- */
+@media screen and (max-width: 768px) {
+	/*--- BASE STYLES ---*/
+	h1 {
+		font-size: 36px;
+	}
+
+	h2 {
+		font-size: 28px;
+	}
+
+	h3 {
+		font-size: 18px;
+	}
+
+	h4 {
+		font-size: 12px;
+	}
+
+	p {
+		font-size: 14px;
+	}
+
+	/*--- MOVIES ---*/
+	.each-movie {
+		margin: 10px;
+	}
+
+	.movie-poster-container {
+		flex: 1;
+	}
+
+	.movie-details {
+		flex: 1;
+	}
+}
+
+@media screen and (max-width: 480px) {
+	/*--- NAV --- */
+	nav {
+		padding: 0;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+	}
+	nav a {
+		margin: 5px 0;
+	}
+
+	.nav-logo {
+		margin-right: 0;
+		margin-top: 20px;
+	}
+
+	/*--- MOVIES ---*/
+	.movie-show {
+		padding: 0 20px;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.movie-details {
+		margin: 50px 0 0 0;
+		padding: 0 20px;
+	}
 }
