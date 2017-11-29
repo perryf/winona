@@ -198,10 +198,6 @@ nav a {
 	padding: 8px 20px;
 }
 
-.movie-results .movie-poster-container {
-	width: 200px;
-}
-
 .all-movies {
 	display: flex;
 	flex-flow: row wrap;
