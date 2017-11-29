@@ -1,0 +1,22 @@
+<section class="movie-show">
+
+  <div class="movie-poster-container">
+    <%= image_tag "https://image.tmdb.org/t/p/w640#{@movie.poster_path}", alt: "Movie Poster for #{@movie.title}" %>
+  </div>
+
+  <div class="movie-details">
+    <span class="edit-options">
+      <%= link_to "+ Add this movie", new_movie_group_path(@movie), class: "h3 add-tmdb-movie-link" %>
+    </span>
+    <h2><%= @movie.title %></h2>
+    <h3>Release Date: <span><%= @movie.release_date %></span></h3>
+    <h3>Director: <span><%= Tmdb::Movie.director(@movie.id)[0].name %></span></h3>
+    <h3>Overview:</h3>
+    <p><%= @movie.overview %></p>
+
+    <div class="go-back">
+      <%= link_to "Go Back", :back %>
+    </div>
+  </div>
+
+</section>

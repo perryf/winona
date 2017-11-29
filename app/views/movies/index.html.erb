@@ -1,26 +1,35 @@
 <section class="movies-index">
 
-  <div class="form-container">
-    <%= form_tag(movies_path, method: :get) do %>
-      <div class="form-section">
-        <%= text_field_tag :query, nil, placeholder: "Search for a movie", class: "form-field" %>
-        <%= submit_tag 'Search', class: "btn search-movies-submit-btn" %>
-      </div>
-    <% end %>
-  </div>
+  <div class="search-movies">
+    <div class="">
+      <h1>What are you watching?</h1>
+    </div>
 
-  <% if @movie_results %>
-    <div class="all-movies">
-      <% @movie_results.results[0..4].each do |movie| %>
-        <div class="each-movie movie-results">
-          <div class="movie-poster-container">
-            <%= image_tag "https://image.tmdb.org/t/p/w640#{movie.poster_path}", alt: "Movie Poster for #{movie.title}" %>
-          </div>
-          <h4 class="movie-title"><%= movie.title %> (id: <%= movie.id %>)</h4>
+    <div class="form-container">
+      <%= form_tag(movies_path, method: :get) do %>
+        <div class="form-section">
+          <%= text_field_tag :query, nil, placeholder: "Search for a movie", class: "form-field" %>
+          <%= submit_tag 'Search', class: "btn search-movies-submit-btn" %>
         </div>
       <% end %>
     </div>
-  <% end %>
+
+    <% if @movie_results %>
+      <h4>Search Results:</h4>
+      <div class="all-movies all-search-results">
+        <% @movie_results.results[0..4].each do |movie| %>
+          <div class="each-movie each-search-result">
+            <%= link_to show_search_result_movies_path(:id => movie.id) do %>
+              <div class="movie-poster-container">
+                <%= image_tag "https://image.tmdb.org/t/p/w640#{movie.poster_path}", alt: "Movie Poster for #{movie.title}" %>
+              </div>
+              <h4 class="movie-title"><%= movie.title %> (id: <%= movie.id %>)</h4>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
 
   <div class="all-movies">
     <% @movies.each do |movie| %>

@@ -7,8 +7,15 @@ class MoviesController < ApplicationController
     end
   end
 
-  def search
-    @query = params[:query]
+  # def search
+  #   @query = params[:query]
+  # end
+
+  def show_result
+    puts '**********************'
+    puts params
+    puts '**********************'
+    @movie = Tmdb::Movie.detail(params['id'])
   end
 
   def new
