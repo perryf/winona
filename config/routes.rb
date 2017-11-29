@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
     collection do
       get '/search/:id' => 'movies#show_result', as: 'show_search_result'
+      post '/add_movie/:id' => 'movies#add_movie', as: 'add_movie'
     end
   end
 end

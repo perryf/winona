@@ -6,7 +6,7 @@
 
   <div class="movie-details">
     <span class="edit-options">
-      <%= link_to "+ Add this movie", new_movie_group_path(@movie), class: "h3 add-tmdb-movie-link" %>
+      <%= link_to "+ Add this movie", add_movie_movies_path(@movie.id), class: "h3 add-tmdb-movie-link", method: :post %>
     </span>
     <h2><%= @movie.title %></h2>
     <h3>Release Date: <span><%= @movie.release_date %></span></h3>
