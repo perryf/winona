@@ -1,5 +1,42 @@
 <section class="movies-index">
 
+  <div class="form-container">
+    <%= form_tag(movies_path, method: :get) do %>
+      <div class="form-section">
+        <%= text_field_tag :query, nil, placeholder: "Search for a movie", class: "form-field" %>
+        <%= submit_tag 'Search', class: "btn search-movies-submit-btn" %>
+      </div>
+    <% end %>
+  </div>
+
+  <% if @movie_results %>
+    <% if @movie_results.results.count >= 5 %>
+      <% @movie_results.results[0..4].each do |movie| %>
+      <div class="movie-results">
+        <div class="movie-poster-container">
+          <%= image_tag "https://image.tmdb.org/t/p/w640#{movie.poster_path}", alt: "Movie Poster for #{movie.title}" %>
+        </div>
+        Title: <%= movie.title %> (id: <%= movie.id %>)<br>
+        Release Date: <%= movie.release_date %><br>
+        Director: <%= Tmdb::Movie.director(movie.id)[0].name %><br>
+        Overview: <%= movie.overview %>
+      </div>
+      <% end %>
+    <% else %>
+      <% @movie_results.results.each do |movie| %>
+        <div class="movie-results">
+          <div class="movie-poster-container">
+            <%= image_tag "https://image.tmdb.org/t/p/w640#{movie.poster_path}", alt: "Movie Poster for #{movie.title}" %>
+          </div>
+          Title: <%= movie.title %> (id: <%= movie.id %>)<br>
+          Release Date: <%= movie.release_date %><br>
+          Director: <%= Tmdb::Movie.director(movie.id)[0].name %><br>
+          Overview: <%= movie.overview %>
+        </div>
+      <% end %>
+    <% end %>
+  <% end %>
+
   <div class="all-movies">
     <% @movies.each do |movie| %>
 

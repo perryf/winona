@@ -1,7 +1,14 @@
 class MoviesController < ApplicationController
   def index
     @movies = Movie.order('id DESC')
-    # flash[:notice] = "hello just testing so i can add css bye"
+    # @movie_results = Tmdb::Search.movie('finding nemo')
+    if params['query']
+      @movie_results = Tmdb::Search.movie(params['query'])
+    end
+  end
+
+  def search
+    @query = params[:query]
   end
 
   def new

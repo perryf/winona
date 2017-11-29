@@ -1,7 +1,5 @@
 class GroupsController < ApplicationController
   def new
-    # @user = current_user
-    # @lists = @user.lists
     @movie = Movie.find(params[:movie_id])
     @group = Group.new
   end
@@ -23,5 +21,17 @@ class GroupsController < ApplicationController
     else
       redirect_to movie_path(@movie)
     end
+    # @group = @movie.groups.new(list: params[:list_id])
+    #
+    # if @group.save
+    #   redirect_to movie_path(@movie), notice: "you did it"
+    # else
+    #   render :new
+    # end
+    #
+    # private
+    # def group_params
+    #   params.require(:group).permit(:list_id)
+    # end
   end
 end

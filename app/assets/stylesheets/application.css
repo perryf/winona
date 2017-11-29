@@ -15,6 +15,9 @@
  */
 
 /* ----- BASE STYLES ----- */
+.movie-results {
+	margin: 50px;
+}
 body {
 	background-color: #f8f8f7;
 	border-top: 10px solid #212121;
@@ -191,6 +194,14 @@ nav a {
 }
 
 /*----- MOVIES ----- */
+.search-movies-submit-btn {
+	padding: 8px 20px;
+}
+
+.movie-results .movie-poster-container {
+	width: 200px;
+}
+
 .all-movies {
 	display: flex;
 	flex-flow: row wrap;
