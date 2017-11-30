@@ -27,13 +27,18 @@ html {
 }
 
 body {
-	background-color: #fafafa;
-	border-top: 10px solid #212121;
+	background-color: #f8f8f7;
+	/*border-top: 10px solid #aebfbe;*/
 	color: #212121;
 	font-family: 'Karla', sans-serif;
 	height: 100%;
 	margin: 0 auto;
 	width: 100%;
+}
+
+section header {
+	margin: 0;
+	padding: 0 40px;
 }
 
 h1 {
@@ -74,7 +79,7 @@ a {
 }
 
 .underline-links:hover {
-	border-bottom: 2px solid #212121;
+	border-bottom: 2px solid #005662;
 }
 
 img {
@@ -100,14 +105,6 @@ img {
 	color: #ffffff;
 }
 
-section header {
-	margin: 0;
-	padding: 0 40px;
-	/*border: 1px solid black;*/
-	/*width: 100%;
-	text-align: center;*/
-}
-
 .go-back {
 	font-size: 14px;
 	letter-spacing: 0.4px;
@@ -117,7 +114,7 @@ section header {
 
 /* change border-bottom color */
 .go-back a:hover {
-	border-bottom: 2px solid #212121;
+	border-bottom: 2px solid #005662;
 }
 
 .edit-options a {
@@ -178,6 +175,7 @@ section header {
 
 /* ----- NAV ----- */
 nav {
+	background-color: #e0f2f1;
 	padding: 15px 30px;
 	display: flex;
 	align-items: center;
@@ -199,8 +197,13 @@ nav a,
 }
 
 /*----- FLASH AND ERROR MESSAGES ----- */
+.flash-messages {
+	background-color: #e0f2f1;
+}
+
 .flash-messages,
 .error-messages {
+	color: #005662;
 	font-size: 14px;
 	letter-spacing: 0.4px;
 	margin: 0;
@@ -210,6 +213,10 @@ nav a,
 	display: flex;
 	align-items: center;
 	justify-content: center;
+}
+
+.alert {
+	color: #af4448;
 }
 
 /*----- MOVIES ----- */
@@ -255,6 +262,7 @@ nav a,
 }
 
 .movie-show {
+	margin-top: 50px;
 	padding: 0 30px;
 	display: flex;
 	flex-direction: row;
@@ -276,7 +284,8 @@ nav a,
 /* SEARCH MOVIES */
 .search-movies {
 	color: #212121;
-	/*background-color: #f4cbb6;*/
+	background-color: #e0f2f1;
+	/*border-bottom: 1px solid #aebfbe;*/
 	min-height: 400px;
 	padding: 30px 0;
 	text-align: center;
@@ -284,6 +293,11 @@ nav a,
 
 .search-movies-form-field {
 	border: 1px solid #212121;
+	padding: 7.5px 20px;
+}
+
+.search-movies-submit-btn {
+	padding: 8px 20px;
 }
 
 .no-movie-found {
@@ -302,12 +316,8 @@ nav a,
 	justify-content: center;
 }
 
-.search-movies-submit-btn {
-	padding: 8px 20px;
-}
-
 .add-tmdb-movie-link:hover {
-	border-bottom: 2px solid #212121;
+	border-bottom: 2px solid #005662;
 }
 
 /*----- LISTS -----*/
@@ -319,7 +329,8 @@ nav a,
 }
 
 .each-list {
-	border: 1px solid black;
+	border: 1px solid #e0f2f1;
+	/*background-color: #aebfbe;*/
 	height: 200px;
 	margin: 30px;
 	width: 300px;
@@ -330,6 +341,10 @@ nav a,
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
+}
+
+.each-list:hover {
+	background-color: #e0f2f1;
 }
 
 .list-show header {
@@ -393,6 +408,12 @@ nav a,
 	.movie-details {
 		flex: 1;
 	}
+
+	/*--- LISTS --- */
+	.all-lists {
+		display: flex;
+		justify-content: center;
+	}
 }
 
 @media screen and (max-width: 700px) {
@@ -422,12 +443,6 @@ nav a,
 	.form-left,
 	.form-right {
 		margin: 0;
-	}
-
-	/*--- LISTS --- */
-	.all-lists {
-		display: flex;
-		justify-content: center;
 	}
 }
 

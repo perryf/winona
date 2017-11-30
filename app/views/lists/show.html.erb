@@ -4,10 +4,10 @@
     <h2><%= @list.name %></h2>
     <span class="edit-options">
       <%= link_to edit_user_list_path(current_user, @list) do %>
-        <i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i>
+        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
       <% end %>
       <%= link_to user_list_path(@list), method: :delete do %>
-        <i class="fa fa-trash-o fa-2x" aria-hidden="true"></i>
+        <i class="fa fa-trash-o" aria-hidden="true"></i>
       <% end %>
     </span>
   </header>
