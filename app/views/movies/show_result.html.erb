@@ -5,9 +5,11 @@
   </div>
 
   <div class="movie-details">
+
     <span class="edit-options">
       <%= link_to "+ Add this movie", add_movie_movies_path(@movie.id), class: "h3 add-tmdb-movie-link", method: :post %>
     </span>
+
     <h2><%= @movie.title %></h2>
     <h3>Release Date: <span><%= @movie.release_date %></span></h3>
     <h3>Director: <span><%= Tmdb::Movie.director(@movie.id)[0].name %></span></h3>
@@ -17,6 +19,7 @@
     <div class="go-back">
       <%= link_to "Go Back", :back %>
     </div>
+    
   </div>
 
 </section>
