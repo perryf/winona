@@ -13,10 +13,11 @@ class ListsController < ApplicationController
   end
 
   def create
-    @list = List.new(list_params.merge(user: current_user))
+    @user = current_user
+    @list = List.new(list_params.merge(user: @user))
 
     if @list.save
-      redirect_to user_lists_path, notice: "#{@list.name} was created."
+      redirect_to user_lists_path(@user), notice: "#{@list.name} was created."
     else
       render :new
     end
