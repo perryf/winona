@@ -198,8 +198,9 @@ nav a,
 	margin-left: 0;
 }
 
-/*----- FLASH MESSAGES ----- */
-.flash-messages {
+/*----- FLASH AND ERROR MESSAGES ----- */
+.flash-messages,
+.error-messages {
 	font-size: 14px;
 	letter-spacing: 0.4px;
 	margin: 0;

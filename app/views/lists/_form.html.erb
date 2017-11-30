@@ -1,3 +1,9 @@
+<div class="error-messages">
+  <% @list.errors.full_messages.each do |message| %>
+    <p><%= message %></p>
+  <% end %>
+</div>
+
 <%= form_for [@user, @list], :html => {:class => "the-form"} do |f| %>
   <div class="form-section">
     <%= f.label :name, "Name:" %><br>

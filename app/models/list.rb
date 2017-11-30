@@ -4,5 +4,5 @@ class List < ApplicationRecord
 
   belongs_to :user
 
-  validates :name, presence: true, uniqueness: true
+  validates :name, presence: true, uniqueness: true, length: {maximum: 50, message: "must be less than 50 characters."}
 end
