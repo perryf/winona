@@ -290,6 +290,11 @@ nav a,
 	text-align: center;
 }
 
+.add-movie-manually {
+	display: block;
+	margin: 20px 0;
+}
+
 .all-search-results {
 	display: flex;
 	flex-flow: row wrap;

@@ -19,19 +19,22 @@
       <h4>Search Results:</h4>
       <% if @movie_results.results.count == 0 %>
         no movies found <i class="fa fa-frown-o" aria-hidden="true"></i>
+        <span class="h4 add-movie-manually">You can add the movie manually <%= link_to "here", new_movie_path, class: "underline-links" %>.</span>
+      <% else %>
+        <div class="all-movies all-search-results">
+          <% @movie_results.results[0..4].each do |movie| %>
+            <div class="each-movie each-search-result">
+              <%= link_to show_search_result_movies_path(:id => movie.id) do %>
+                <div class="movie-poster-container">
+                  <%= image_tag "https://image.tmdb.org/t/p/w640#{movie.poster_path}", alt: "Movie Poster for #{movie.title}" %>
+                </div>
+                <h4 class="movie-title"><%= movie.title %></h4>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+        <span class="h4 add-movie-manually">No movie? Add it yourself <%= link_to "here", new_movie_path, class: "underline-links" %>.</span>
       <% end %>
-      <div class="all-movies all-search-results">
-        <% @movie_results.results[0..4].each do |movie| %>
-          <div class="each-movie each-search-result">
-            <%= link_to show_search_result_movies_path(:id => movie.id) do %>
-              <div class="movie-poster-container">
-                <%= image_tag "https://image.tmdb.org/t/p/w640#{movie.poster_path}", alt: "Movie Poster for #{movie.title}" %>
-              </div>
-              <h4 class="movie-title"><%= movie.title %></h4>
-            <% end %>
-          </div>
-        <% end %>
-      </div>
     <% end %>
 
   </div>
