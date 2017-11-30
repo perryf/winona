@@ -13,6 +13,6 @@ class ApplicationController < ActionController::Base
   end
 
   def no_method_error
-    redirect_to root_url, alert: "Sorry, you can't do that..."
+    redirect_to root_url, alert: "Oops, something went wrong..."
   end
 end

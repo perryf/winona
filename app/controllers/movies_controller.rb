@@ -23,7 +23,7 @@ class MoviesController < ApplicationController
       poster_url: "https://image.tmdb.org/t/p/w640#{@movie.poster_path}"
     )
 
-    redirect_to movie_path(@new_movie), notice: "#{@new_movie.title} was successfully added!"
+    redirect_to movie_path(@new_movie), notice: "#{@new_movie.title} was added."
   end
 
   def new
@@ -35,7 +35,7 @@ class MoviesController < ApplicationController
 
     if @movie.save
       redirect_to movie_path(@movie), notice:
-      "#{@movie.title} was successfully created!"
+      "#{@movie.title} was created."
     else
       render :new
     end
@@ -54,7 +54,7 @@ class MoviesController < ApplicationController
     @movie.update(movie_params)
 
     if @movie.save
-      redirect_to movie_path(@movie), notice: "#{@movie.title} was successfully updated!"
+      redirect_to movie_path(@movie), notice: "#{@movie.title} was updated."
     else
       render :edit
     end
@@ -65,7 +65,8 @@ class MoviesController < ApplicationController
 
     if @movie.lists.count == 0
       @movie.destroy
-      redirect_to movies_path, notice: "#{@movie.title} was successfully deleted."
+
+      redirect_to movies_path, notice: "#{@movie.title} was deleted."
     else
       redirect_to movie_path(@movie), alert: "#{@movie.title} can't be deleted because it belongs to one or more lists."
     end
