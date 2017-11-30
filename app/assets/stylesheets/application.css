@@ -423,6 +423,12 @@ nav a,
 	.form-right {
 		margin: 0;
 	}
+
+	/*--- LISTS --- */
+	.all-lists {
+		display: flex;
+		justify-content: center;
+	}
 }
 
 @media screen and (max-width: 480px) {
