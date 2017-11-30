@@ -19,7 +19,7 @@
       <%= link_to "winona", root_path, class: "nav-logo" %>
       <% if !current_user %>
         <%= link_to new_user_session_path do %>
-          <i class="fa fa-user" aria-hidden="true"></i>
+          <i class="fa fa-user-o" aria-hidden="true"></i>
         <% end %>
       <% else %>
         <span class="signed-in-user-email"><%= current_user.email %></span>
