@@ -28,12 +28,25 @@ html {
 
 body {
 	background-color: #f8f8f7;
-	/*border-top: 10px solid #aebfbe;*/
 	color: #212121;
 	font-family: 'Karla', sans-serif;
 	height: 100%;
 	margin: 0 auto;
 	width: 100%;
+}
+
+.wrapper {
+	margin: 0;
+	min-height: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
+	justify-content: center;
+}
+
+/* this keeps footer at the bottom */
+main {
+	flex: 1;
 }
 
 section header {
@@ -285,7 +298,6 @@ nav a,
 .search-movies {
 	color: #212121;
 	background-color: #e0f2f1;
-	/*border-bottom: 1px solid #aebfbe;*/
 	min-height: 400px;
 	padding: 30px 0;
 	text-align: center;
@@ -330,7 +342,6 @@ nav a,
 
 .each-list {
 	border: 1px solid #e0f2f1;
-	/*background-color: #aebfbe;*/
 	height: 200px;
 	margin: 30px;
 	width: 300px;
@@ -371,6 +382,18 @@ nav a,
 
 .new-group-list-label {
 	margin-left: 5px;
+}
+
+/*----- FOOTER -----*/
+footer {
+	background-color: #eceff1;
+	margin-top: 80px;
+	min-height: 150px;
+	padding: 30px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
 }
 
 /*----- MEDIA QUERIES ----- */
