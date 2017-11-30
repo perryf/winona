@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy, :add_movie]
 
-  Tmdb::Api.key("206193c24923aa18bca03c3d3c630850")
+  Tmdb::Api.key(ENV["TMDB_KEY"])
 
   private
   def couldnt_find_record

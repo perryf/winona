@@ -58,3 +58,5 @@ gem 'devise'
 gem 'themoviedb-api'
 
 gem "rails_12factor", group: :production
+
+gem 'figaro'
