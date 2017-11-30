@@ -116,6 +116,15 @@ section header {
 	justify-content: center;
 }
 
+.form-sides {
+	display: flex;
+}
+
+.form-left,
+.form-right {
+	margin: 0 30px;
+}
+
 .form-section {
 	margin: 20px 0;
 }
@@ -131,6 +140,10 @@ section header {
 	padding: 7px 5px;
 	width: 350px;
 	margin-top: 8px;
+}
+
+.form-field:focus {
+	outline: none;
 }
 
 .checkbox > label {
@@ -243,7 +256,6 @@ nav a {
 
 /* SEARCH MOVIES */
 .search-movies {
-	border: 1px solid red;
 	text-align: center;
 }
 
@@ -334,6 +346,17 @@ nav a {
 	}
 }
 
+@media screen and (max-width: 700px) {
+	.form-sides {
+		flex-direction: column;
+	}
+
+	.form-left,
+	.form-right {
+		margin: 0;
+	}
+}
+
 @media screen and (max-width: 480px) {
 	/*--- NAV --- */
 	nav {
@@ -361,6 +384,25 @@ nav a {
 
 	.movie-details {
 		margin: 50px 0 0 0;
-		padding: 0 20px;
+		padding: 0 10px;
+	}
+
+	.each-movie .movie-poster-container {
+		width: 320px;
+	}
+
+	.search-movies-form-field {
+		width: 220px;
+	}
+}
+
+@media screen and (max-width: 320px) {
+	/*--- MOVIES ---*/
+	.each-movie .movie-poster-container {
+		width: 300px;
+	}
+
+	.search-movies-form-field {
+		width: 160px;
 	}
 }
