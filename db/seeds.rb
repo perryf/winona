@@ -10,7 +10,8 @@ Movie.destroy_all
 User.destroy_all
 List.destroy_all
 
-sarah = User.create(email: "sarahyu0692@gmail.com", password: "password")
+sarah = User.create(email: "sarah@winona.com", password: "password")
+user = User.create(email: "user@winona.com", password: "password")
 
 list_watched = sarah.lists.create(name: "Watched")
 list_to_watch = sarah.lists.create(name: "To Watch")
@@ -20,7 +21,7 @@ movies_watched =  Movie.create([
     title: "The Grand Budapest Hotel",
     release_date: "March 7, 2014",
     director: "Wes Anderson",
-    overview: "The Grand Budapest Hotel tells of a legendary concierge at a famous European hotel between the wars and his friendship with a young employee who becomes his trusted protégé. The story involves the theft and recovery of a priceless Renaissance painting, the battle for an enormous family fortune and the slow and then sudden upheavals that transformed Europe during the first half of the 20th century.",
+    overview: "The Grand Budapest Hotel tells of a legendary concierge at a famous European hotel between the wars and his friendship with a young employee who becomes his trusted protege. The story involves the theft and recovery of a priceless Renaissance painting, the battle for an enormous family fortune and the slow and then sudden upheavals that transformed Europe during the first half of the 20th century.",
     poster_url: "https://image.tmdb.org/t/p/w640/nX5XotM9yprCKarRH4fzOq1VM1J.jpg"
   },
   {
