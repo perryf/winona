@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   rescue_from ActiveRecord::RecordNotFound, with: :couldnt_find_record
   rescue_from NoMethodError, with: :no_method_error
 
-  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy, :add_movie]
 
   Tmdb::Api.key("206193c24923aa18bca03c3d3c630850")
 
