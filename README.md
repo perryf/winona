@@ -16,13 +16,18 @@ See it in action here: https://winona-movies.herokuapp.com
 - Users can only delete movies that don't belong to any lists
 
 
-## Technologies used
+## Technologies Used
 
 - Ruby on Rails
 - HTML/CSS
 - Active Record
 - PostgreSQL
 - [The Movie Database API](https://developers.themoviedb.org/3/getting-started)
+
+
+## Credit
+
+This app uses [The Movie Database API](https://developers.themoviedb.org/3/getting-started). All movie data and images are from The Movie Database.
 
 
 ## Contribute
