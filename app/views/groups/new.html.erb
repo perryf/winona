@@ -14,17 +14,17 @@
 
     <% if current_user.lists.count == 0 %>
       <p>
-        You don't have any lists :(<br>
+        You don't have any lists <i class="fa fa-frown-o" aria-hidden="true"></i><br>
         <%= button_to "Create a new list", new_user_list_path(current_user), class: 'btn', method: :get %>
       </p>
     <% else %>
       <%= form_for [@movie, @group], :html => {:class => "the-form"} do |f| %>
         <div class="form-section">
           <% current_user.lists.each do |list| %>
-          <div class="form-field new-group-form-field">
-            <%= radio_button_tag "list_ids[]", list.id %>
-            <span class="new-group-list-label"><%= list.name %></span>
-          </div>
+            <div class="form-field new-group-form-field">
+              <%= radio_button_tag "list_id", list.id %>
+              <span class="new-group-list-label"><%= list.name %> (<%= list.movies.count %> movies)</span>
+            </div>
           <% end %>
         </div>
 

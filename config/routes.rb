@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   end
 
   resources :movies do
-    resources :groups
+    resources :groups, except: [:index, :show]
 
     collection do
       get '/search/:id' => 'movies#show_result', as: 'show_search_result'

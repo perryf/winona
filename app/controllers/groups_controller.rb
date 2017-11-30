@@ -5,33 +5,16 @@ class GroupsController < ApplicationController
   end
 
   def create
+    @user = current_user
     @movie = Movie.find(params[:movie_id])
-    @list_ids = params[:list_ids] || []
+    @list = List.find(params[:list_id])
 
-    @list_ids.each do |list|
-      @group = List.find(list).groups.new(movie: @movie)
-      @count = 0
-      if !@group.save
-        @count += 1
-      end
-    end
+    @group = @movie.groups.new(list: @list)
 
-    if @count > 0
-      render :new
+    if @group.save
+      redirect_to user_list_path(@user, @list), notice: "#{@movie.title} was added to #{@list.name}"
     else
-      redirect_to movie_path(@movie)
+      render :new
     end
-    # @group = @movie.groups.new(list: params[:list_id])
-    #
-    # if @group.save
-    #   redirect_to movie_path(@movie), notice: "you did it"
-    # else
-    #   render :new
-    # end
-    #
-    # private
-    # def group_params
-    #   params.require(:group).permit(:list_id)
-    # end
   end
 end
