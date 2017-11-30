@@ -49,11 +49,12 @@ class ListsController < ApplicationController
 
     if @list.user == current_user
       @list.destroy
+
+      redirect_to user_lists_path, notice: "#{@list.name} was deleted."
     else
-      flash[:alert] = "You can only delete lists that you create."
+      redirect_to root_path, alert: "You can only delete lists that you create."
     end
 
-    redirect_to user_lists_path, notice: "#{@list.name} was deleted."
   end
 
   private
