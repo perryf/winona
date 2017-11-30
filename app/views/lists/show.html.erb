@@ -1,12 +1,16 @@
 <section class="list-show">
+
   <header>
     <h2><%= @list.name %> <%= link_to "(Edit)", edit_user_list_path(current_user, @list) %> <%= link_to "(Delete)", user_list_path(@list), method: :delete %></h2>
   </header>
 
   <% if @list.movies.count == 0 %>
-    <p>This list is empty :(</p>
+    <p>
+      This list is empty <i class="fa fa-frown-o" aria-hidden="true"></i>
+    </p>
   <% else %>
     <div class="all-movies">
+
       <% @list.movies.order('id DESC').each do |movie| %>
         <div class="each-movie">
           <div class="movie-poster-container">
@@ -15,6 +19,8 @@
           <h4 class="movie-title"><%= link_to movie.title, movie_path(movie) %></h4>
         </div>
       <% end %>
+
     </div>
   <% end %>
+
 </section>

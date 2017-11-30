@@ -1,9 +1,11 @@
 <section class="movie-show">
+
   <div class="movie-poster-container">
     <%= image_tag @movie.poster_url, alt: "Movie Poster for #{@movie.title}" %>
   </div>
 
   <div class="movie-details">
+
     <h2 class="add-movie-to-list-header">Add <%= @movie.title %> to one of your lists:</h2>
 
     <div class="error-messages">
@@ -27,11 +29,13 @@
             </div>
           <% end %>
         </div>
-
         <div class="">
           <%= f.submit "Add to list", class: "btn" %>
         </div>
       <% end %>
+
     <% end %>
+
   </div>
+
 </section>
