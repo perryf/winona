@@ -1,26 +1,20 @@
 class MoviesController < ApplicationController
   def index
     @movies = Movie.order('id DESC')
-    # @movie_results = Tmdb::Search.movie('finding nemo')
-    if params['query']
+
+    if params['query'] && params['query'] != ""
       @movie_results = Tmdb::Search.movie(params['query'])
     end
   end
 
-  # def search
-  #   @query = params[:query]
-  # end
-
   def show_result
-    puts '**********************'
-    puts params
-    puts '**********************'
     @movie = Tmdb::Movie.detail(params['id'])
   end
 
   def add_movie
     @movie = Tmdb::Movie.detail(params['id'])
     @movie_director = Tmdb::Movie.director(@movie.id)[0].name
+
     @new_movie = Movie.create(
       title: @movie.title,
       release_date: @movie.release_date,
