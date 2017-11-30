@@ -15,13 +15,25 @@
  */
 
 /* ----- BASE STYLES ----- */
+html {
+	box-sizing: border-box;
+	height: 100%;
+}
+
+*,
+*:before,
+*:after {
+	box-sizing: inherit;
+}
+
 body {
-	background-color: #f8f8f7;
+	background-color: #fafafa;
 	border-top: 10px solid #212121;
 	color: #212121;
 	font-family: 'Karla', sans-serif;
 	height: 100%;
-	margin: 0;
+	margin: 0 auto;
+	width: 100%;
 }
 
 h1 {
@@ -62,7 +74,7 @@ a {
 }
 
 .underline-links:hover {
-	border-bottom: 2px solid blue;
+	border-bottom: 2px solid #212121;
 }
 
 img {
@@ -105,7 +117,7 @@ section header {
 
 /* change border-bottom color */
 .go-back a:hover {
-	border-bottom: 2px solid blue;
+	border-bottom: 2px solid #212121;
 }
 
 .edit-options a {
@@ -166,14 +178,16 @@ section header {
 
 /* ----- NAV ----- */
 nav {
-	padding: 30px 30px 10px 30px;
+	padding: 15px 30px;
 	display: flex;
 	align-items: center;
 }
 
-nav a {
+nav a,
+.signed-in-user-email {
 	display: inline-block;
-	margin-left: 10px;
+	letter-spacing: 0.4px;
+	margin-left: 22px;
 }
 
 .nav-logo {
@@ -181,11 +195,7 @@ nav a {
 	font-size: 36px;
 	letter-spacing: 0.4px;
 	margin-right: auto;
-}
-
-.nav-account-link {
-	letter-spacing: 0.4px;
-	text-transform: uppercase;
+	margin-left: 0;
 }
 
 /*----- FLASH MESSAGES ----- */
@@ -197,20 +207,21 @@ nav a {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	/*border: 1px solid blue;*/
-	/*min-height: 50px;*/
-}
-
-/* change these colors later */
-.notice {
-	color: blue;
-}
-
-.alert {
-	color: red;
 }
 
 /*----- MOVIES ----- */
+.all-movies-heading {
+	background-color: #fafafa;
+	color: #212121;
+	text-align: center;
+	padding: 10px;
+}
+
+.all-movies-heading h3 {
+	font-size: 18px;
+	line-height: 1.6;
+}
+
 .all-movies {
 	display: flex;
 	flex-flow: row wrap;
@@ -261,6 +272,18 @@ nav a {
 
 /* SEARCH MOVIES */
 .search-movies {
+	color: #212121;
+	/*background-color: #f4cbb6;*/
+	min-height: 400px;
+	padding: 30px 0;
+	text-align: center;
+}
+
+.search-movies-form-field {
+	border: 1px solid #212121;
+}
+
+.no-movie-found {
 	text-align: center;
 }
 
@@ -276,7 +299,7 @@ nav a {
 }
 
 .add-tmdb-movie-link:hover {
-	border-bottom: 2px solid blue;
+	border-bottom: 2px solid #212121;
 }
 
 /*----- LISTS -----*/
@@ -284,13 +307,14 @@ nav a {
 	display: flex;
 	flex-flow: row wrap;
 	align-items: center;
-	justify-content: space-around;
+	justify-content: flex-start;
 }
 
 .each-list {
 	border: 1px solid black;
-	height: 300px;
+	height: 200px;
 	margin: 30px;
+	width: 300px;
 	flex-basis: 300px;
 	flex-grow: 0;
 	flex-shrink: 1;
@@ -298,6 +322,18 @@ nav a {
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
+}
+
+.list-show header {
+	margin: 30px 0;
+}
+
+.list-show h2 {
+	margin-bottom: 15px;
+}
+
+.list-show .edit-options {
+	margin-left: 3px;
 }
 
 /*----- GROUPS -----*/
@@ -352,6 +388,25 @@ nav a {
 }
 
 @media screen and (max-width: 700px) {
+	/*--- NAV --- */
+	nav {
+		padding: 0;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.nav-logo {
+		margin-right: 0;
+		margin-top: 20px;
+	}
+
+	nav a,
+	.signed-in-user-email {
+		margin: 10px 0;
+	}
+
+	/*--- FORM ---*/
 	.form-sides {
 		flex-direction: column;
 	}
@@ -363,20 +418,16 @@ nav a {
 }
 
 @media screen and (max-width: 480px) {
-	/*--- NAV --- */
-	nav {
-		padding: 0;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-	}
-	nav a {
-		margin: 5px 0;
+	h1 {
+		font-size: 28px;
 	}
 
-	.nav-logo {
-		margin-right: 0;
-		margin-top: 20px;
+	h2 {
+		font-size: 20px;
+	}
+
+	h3 {
+		font-size: 16px;
 	}
 
 	/*--- MOVIES ---*/
@@ -394,6 +445,10 @@ nav a {
 
 	.each-movie .movie-poster-container {
 		width: 320px;
+	}
+
+	.search-movies-heading {
+		padding: 0 8px;
 	}
 
 	.search-movies-form-field {

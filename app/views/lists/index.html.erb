@@ -5,10 +5,12 @@
 
   <div class="all-lists">
     <% @user.lists.order('id DESC').each do |list| %>
-      <div class="each-list">
-        <p><%= link_to list.name, user_list_path(@user, list) %></p>
-        <p>(<%= list.movies.count %>)</p>
-      </div>
+      <%= link_to user_list_path(@user, list) do %>
+        <div class="each-list">
+          <p><%= list.name %></p>
+          <p>(<%= list.movies.count %> movies)</p>
+        </div>
+      <% end %>
     <% end %>
   </div>
 

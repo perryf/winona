@@ -1,5 +1,7 @@
 class MoviesController < ApplicationController
   def index
+    # flash[:notice] = "testinggg"
+
     @movies = Movie.order('id DESC')
 
     if params['query'] && params['query'] != ""

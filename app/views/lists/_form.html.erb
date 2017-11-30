@@ -1,7 +1,7 @@
 <%= form_for [@user, @list], :html => {:class => "the-form"} do |f| %>
   <div class="form-section">
     <%= f.label :name, "Name:" %><br>
-    <%= f.text_field :name, class: "form-field" %>
+    <%= f.text_field :name, autofocus: true, class: "form-field" %>
   </div>
 
   <% if @list.movies.count != 0 %>

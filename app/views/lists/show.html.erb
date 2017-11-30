@@ -1,16 +1,23 @@
 <section class="list-show">
 
   <header>
-    <h2><%= @list.name %> <%= link_to "(Edit)", edit_user_list_path(current_user, @list) %> <%= link_to "(Delete)", user_list_path(@list), method: :delete %></h2>
+    <h2><%= @list.name %></h2>
+    <span class="edit-options">
+      <%= link_to edit_user_list_path(current_user, @list) do %>
+        <i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i>
+      <% end %>
+      <%= link_to user_list_path(@list), method: :delete do %>
+        <i class="fa fa-trash-o fa-2x" aria-hidden="true"></i>
+      <% end %>
+    </span>
   </header>
+  <div class="all-movies">
 
-  <% if @list.movies.count == 0 %>
-    <p>
-      This list is empty <i class="fa fa-frown-o" aria-hidden="true"></i>
-    </p>
-  <% else %>
-    <div class="all-movies">
-
+    <% if @list.movies.count == 0 %>
+      <p>
+        This list is empty <i class="fa fa-frown-o" aria-hidden="true"></i>
+      </p>
+    <% else %>
       <% @list.movies.order('id DESC').each do |movie| %>
         <div class="each-movie">
           <div class="movie-poster-container">
@@ -19,8 +26,8 @@
           <h4 class="movie-title"><%= link_to movie.title, movie_path(movie) %></h4>
         </div>
       <% end %>
+    <% end %>
 
-    </div>
-  <% end %>
+  </div>
 
 </section>

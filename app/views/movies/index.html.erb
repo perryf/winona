@@ -2,7 +2,7 @@
 
   <div class="search-movies">
 
-    <div class="">
+    <div class="search-movies-heading">
       <h1>What are you watching?</h1>
     </div>
 
@@ -17,6 +17,9 @@
 
     <% if @movie_results %>
       <h4>Search Results:</h4>
+      <% if @movie_results.results.count == 0 %>
+        no movies found <i class="fa fa-frown-o" aria-hidden="true"></i>
+      <% end %>
       <div class="all-movies all-search-results">
         <% @movie_results.results[0..4].each do |movie| %>
           <div class="each-movie each-search-result">
@@ -33,7 +36,12 @@
 
   </div>
 
+  <div class="all-movies-heading">
+    <h3>Check out what your friends are watching</h3>
+  </div>
+
   <div class="all-movies">
+
     <% @movies.each do |movie| %>
 
       <div class="each-movie">
