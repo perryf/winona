@@ -4,3 +4,4 @@ class Group < ApplicationRecord
 
   validates :list_id, :uniqueness => { :scope => :movie_id, :message => "already contains this movie."}
 end
+# Nice job on the validation here!

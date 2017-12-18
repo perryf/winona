@@ -246,3 +246,5 @@ end
 movies_to_watch.each do |movie|
   movie.groups.create(list: list_to_watch)
 end
+
+# Seed data is solid.  Consider including the arrays of movie data in another file to make seeds easier to visualize.  

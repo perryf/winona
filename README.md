@@ -33,3 +33,6 @@ This app uses [The Movie Database API](https://developers.themoviedb.org/3/getti
 ## Contribute
 
 Source code: https://github.com/sarah-yu/winona
+
+<!-- Nice job on the readme.  Think about adding a Installation Section where you let users know how to clone down, run seeds, and start up rails. -->
+<!-- https://medium.com/@meakaakka/a-beginners-guide-to-writing-a-kickass-readme-7ac01da88ab3 check out this site for more readme tips! -->

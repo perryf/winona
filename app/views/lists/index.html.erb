@@ -4,7 +4,7 @@
   </header>
 
   <div class="all-lists">
-    <% @user.lists.order('id DESC').each do |list| %>
+    <% @user.lists.order('id DESC').each do |list| %> # put the lists.order logic in the controller.  
       <%= link_to user_list_path(@user, list) do %>
         <div class="each-list">
           <p><%= list.name %></p>

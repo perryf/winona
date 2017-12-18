@@ -18,3 +18,4 @@ class GroupsController < ApplicationController
     end
   end
 end
+# Good job making a slim functional controller.  

@@ -9,7 +9,7 @@ class MoviesController < ApplicationController
 
   def show_result
     @movie = Tmdb::Movie.detail(params['id'])
-  end
+  end # Arguably could put this in show with an if/else statement, but what you did is also valid.  Good job with this custom method / view!
 
   def add_movie
     @movie = Tmdb::Movie.detail(params['id'])
